@@ -1,60 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的个人网页</title>
-    <style>
-        body {
-            font-family: "Microsoft YaHei", sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>姜诗怡 | 工业设计工程</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: '#3A4F66',
+                        light: '#EAE6E1',
+                        accent: '#7D9D9C',
+                        dark: '#222C38'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-        .header {
-            text-align: center;
-            background-color: #24292e;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .content {
-            background-color: white;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-sm {
+                text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            }
+            .card-hover:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 16px 32px rgba(58, 79, 102, 0.12);
+            }
+            .line-animate::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                background: #7D9D9C;
+                display: block;
+                transition: width 0.4s ease;
+            }
+            .line-animate:hover::after {
+                width: 100%;
+            }
+            .bg-grid {
+                background-image: radial-gradient(#3a4f6615 1px, transparent 1px);
+                background-size: 24px 24px;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <h1>欢迎来到我的个人网页！</h1>
-        <p>这是我用GitHub Pages创建的第一个网页</p>
-    </div>
-    
-    <div class="content">
-        <h2>关于我</h2>
-        <p>大家好，我是姜诗怡，一名工业设计工程专业学生。</p>
-        
-        <h2>我的兴趣</h2>
-        <ul>
-            <li>人工智能</li>
-            <li>编程开发</li>
-            <li>阅读写作</li>
-        </ul>
-        
-        <h2>联系方式</h2>
-        <p>邮箱：395870599@qq.com</p>
-    </div>
-    
-    <div class="footer">
-        <p>&copy; 2026 我的个人网页 | Powered by GitHub Pages</p>
-    </div>
+<body class="bg-light text-main font-sans overflow-x-hidden">
+    <!-- 顶部导航 -->
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-light/80 border-b border-main/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wide line-animate">姜诗怡</a>
+            <div class="flex gap-8 text-sm">
+                <a href="#about" class="line-animate py-1">关于我</a>
+                <a href="#skill" class="line-animate py-1">专业技能</a>
+                <a href="#hobby" class="line-animate py-1">兴趣爱好</a>
+                <a href="#contact" class="line-animate py-1">联系</a>
+                <a href="https://github.com/你的github用户名" target="_blank" class="text-lg"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero 区 -->
+    <section class="min-h-screen flex flex-col justify-center bg-grid pt-20 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <p class="text-accent text-lg mb-3 tracking-widest">HI, I'M</p>
+                <h1 class="text-[clamp(2.8rem,6vw,4.5rem)] font-bold text-dark leading-tight">
+                    姜诗怡
+                </h1>
+                <div class="mt-4 space-y-2 text-lg text-main/80">
+                    <p>广东工业大学 · 工业设计工程</p>
+                    <p>Product & Industrial Designer</p>
+                </div>
+                <div class="mt-8 flex gap-4">
+                    <a href="#about" class="px-7 py-3 bg-main text-white rounded-full card-hover shadow-md">
+                        了解更多
+                    </a>
+                    <a href="#contact" class="px-7 py-3 border border-main rounded-full card-hover">
+                        联系方式
+                    </a>
+                </div>
+            </div>
+            <!-- 简约几何装饰 贴合工业设计调性 -->
+            <div class="order-1 md:order-2 flex justify-center">
+                <div class="w-72 h-72 rounded-full bg-accent/20 relative">
+                    <div class="absolute inset-8 rounded-full border-2 border-dashed border-accent/40"></div>
+                    <div class="absolute inset-16 rounded-full bg-main/10 flex items-center justify-center">
+                        <i class="fa fa-cube text-6xl text-accent"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 inline-block line-animate">关于我</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl card-hover shadow-sm">
+                    <i class="fa fa-university text-3xl text-accent mb-5"></i>
+                    <h3 class="text-xl font-semibold mb-2">院校背景</h3>
+                    <p class="text-main/70">广东工业大学<br>工业设计工程专业，深耕产品设计、文创IP、人机交互设计，注重设计落地与用户体验。</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl card-hover shadow-sm">
+                    <i class="fa fa-paint-brush text-3xl text-accent mb-5"></i>
+                    <h3 class="text-xl font-semibold mb-2">设计理念</h3>
+                    <p class="text-main/70">以理性工程思维结合美学表达，平衡功能、工艺与视觉，做有温度、可量产的落地设计。</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl card-hover shadow-sm">
+                    <i class="fa fa-lightbulb-o text-3xl text-accent mb-5"></i>
+                    <h3 class="text-xl font-semibold mb-2">研究方向</h3>
+                    <p class="text-main/70">乡村文创IP设计、智能产品外观、可用性工程、赛事设计创作。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业技能 -->
+    <section id="skill" class="py-24 px-6 bg-dark/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 inline-block line-animate">专业设计技能</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white py-10 rounded-xl text-center card-hover">
+                    <i class="fa fa-cube text-4xl text-accent mb-4"></i>
+                    <p>Rhino / Keyshot</p>
+                </div>
+                <div class="bg-white py-10 rounded-xl text-center card-hover">
+                    <i class="fa fa-image text-4xl text-accent mb-4"></i>
+                    <p>PS / AI / Figma</p>
+                </div>
+                <div class="bg-white py-10 rounded-xl text-center card-hover">
+                    <i class="fa fa-code text-4xl text-accent mb-4"></i>
+                    <p>基础前端展示</p>
+                </div>
+                <div class="bg-white py-10 rounded-xl text-center card-hover">
+                    <i class="fa fa-file-text-o text-4xl text-accent mb-4"></i>
+                    <p>设计竞赛/展板</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 兴趣爱好 -->
+    <section id="hobby" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 inline-block line-animate">兴趣爱好</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="flex gap-6 items-center bg-white p-8 rounded-2xl card-hover">
+                    <div class="w-20 h-20 flex items-center justify-center bg-accent/10 rounded-full shrink-0">
+                        <i class="fa fa-music text-3xl text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">听歌</h3>
+                        <p class="text-main/70">各类风格音乐陪伴设计思考，舒缓创作压力，捕捉旋律中的色彩与氛围感灵感。</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-center bg-white p-8 rounded-2xl card-hover">
+                    <div class="w-20 h-20 flex items-center justify-center bg-accent/10 rounded-full shrink-0">
+                        <i class="fa fa-running text-3xl text-accent"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">跑步</h3>
+                        <p class="text-main/70">户外慢跑放空思绪，保持专注力与体能，在行走观察中收集生活产品设计素材。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="py-24 px-6 bg-main text-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">与我联系</h2>
+            <p class="opacity-80 mb-10 max-w-xl mx-auto">欢迎设计交流、项目合作、赛事探讨，随时私信我</p>
+            <div class="flex justify-center gap-8 text-3xl">
+                <a href="https://github.com/你的github用户名" target="_blank" class="opacity-80 hover:opacity-100 transition">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="opacity-80 hover:opacity-100 transition">
+                    <i class="fa fa-envelope-o"></i>
+                </a>
+                <a href="#" class="opacity-80 hover:opacity-100 transition">
+                    <i class="fa fa-weixin"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 text-center text-sm text-main/60 border-t border-main/10">
+        <p>© 2026 姜诗怡 | Industrial Design Engineering · GDUT</p>
+        <p class="mt-2">Built for GitHub Pages</p>
+    </footer>
+
+    <!-- 平滑滚动 -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
